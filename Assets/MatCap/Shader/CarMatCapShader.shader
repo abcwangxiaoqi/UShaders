@@ -1,5 +1,4 @@
-﻿
-Shader "Unlit/CarMatCapShader"
+﻿Shader "Unlit/CarMatCapShader"
 {
     Properties
     {
@@ -23,6 +22,8 @@ Shader "Unlit/CarMatCapShader"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+
+            #pragma multi_compile _TYPE_NORMAL _TYPE_FIXATION
             
             #include "UnityCG.cginc"
 
@@ -59,17 +60,16 @@ Shader "Unlit/CarMatCapShader"
                 o.uv.xy = TRANSFORM_TEX(v.uv, _MainTex);
                 o.maskUv.xy = TRANSFORM_TEX(v.maskuv, _MainTex);
 
-                //transfer to view
-                float2 fixTypeUV;
-                fixTypeUV.x=dot(normalize(UNITY_MATRIX_IT_MV[0].xyz), normalize(v.normal));
-                fixTypeUV.y=dot(normalize(UNITY_MATRIX_IT_MV[1].xyz), normalize(v.normal));
-
+                #if _TYPE_NORMAL
                 //transfer to world
-                float2 norTypeUV;
-                norTypeUV.xy=UnityObjectToWorldNormal(v.normal).xy;
+                o.uv.zw = UnityObjectToWorldNormal(v.normal).xy;
+                #endif
 
-                //adjust type
-                o.uv.zw=lerp(norTypeUV,fixTypeUV,_Type);
+                #if _TYPE_FIXATION  
+                //transfer to view
+                o.uv.z =dot(normalize(UNITY_MATRIX_IT_MV[0].xyz), normalize(v.normal));
+                o.uv.w =dot(normalize(UNITY_MATRIX_IT_MV[1].xyz), normalize(v.normal));
+                #endif
 
                 //matcap uv must be 0~1
                 o.uv.zw = o.uv.zw * 0.5 + 0.5;//(-1,1)->(0,1)
