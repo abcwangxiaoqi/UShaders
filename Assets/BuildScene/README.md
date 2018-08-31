@@ -32,7 +32,7 @@ unity中的烘培信息是记录在uv2中的。
 
 **扩展** : 这用的Cube做实时反射，因为项目特殊的要求。反射阔以在烘焙的时候用反射探针来记录，适当修改下脚本就阔以。
 
-放几张项目运行时的截图
+放几张项目运行时的截图  
 ![poperties](screenshoot/day.png)
 ![poperties](screenshoot/night.png)
 
