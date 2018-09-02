@@ -58,7 +58,7 @@
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "AutoLight.cginc"
-			#include "../CommonCg/MyCgInclude.cginc"
+			#include "../../CommonCg/MyCgInclude.cginc"
 
 			struct appdata
 			{
@@ -170,7 +170,7 @@
 				diffuse=max(vlight,diffuse);
 
 				//shadow
-				UNITY_LIGHT_ATTENUATION(atten, i, worldPos);
+				UNITY_LIGHT_ATTENUATION(atten, vf, worldPos);
 				atten=clamp(atten,_MinAtten,1);
 
 				//blend
