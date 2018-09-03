@@ -4,6 +4,8 @@
 
 [Billboard](Assets/Billboard/README.md)  
 
+[UI Loading](Assets/UILoading/README.md)  
+
 [FrameAnim](Assets/FrameAnim/README.md)  
 
 [City Scene](Assets/BuildScene/README.md)
