@@ -8,6 +8,14 @@
 
 [FrameAnim](Assets/FrameAnim/README.md)  
 
+[Dissolve](Assets/Dissolve/README.md)  
+
+[DissolveEnv](Assets/DissolveEnv/README.md)  
+
+[DissolveOcclusion](Assets/DissolveOcclusion/README.md)  
+
+[DissolvePoint](Assets/DissolvePoint/README.md)  
+
 [City Scene](Assets/BuildScene/README.md)
 
 [Mataterial Capture](Assets/MatCap/README.md)
