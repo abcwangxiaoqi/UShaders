@@ -26,7 +26,7 @@ public class DissolveEnv : MonoBehaviour
         MeshRenderer[] meshRenderers = GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < meshRenderers.Length; i++)
         {
-            meshRenderers[i].material.SetVector("_Start", dissolveEndPoint);
+            meshRenderers[i].material.SetVector("_End", dissolveEndPoint);
             meshRenderers[i].material.SetFloat("_MaxDistance", maxDistance);
         }
     }
