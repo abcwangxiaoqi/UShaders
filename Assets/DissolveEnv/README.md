@@ -63,4 +63,8 @@
 
         return col;
     }
-```
+```  
+正常时效果
+![normal](screenshoot/1.png) 
+40%溶解效果
+![normal](screenshoot/2.png)
