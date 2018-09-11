@@ -61,6 +61,7 @@
 				float len = length(_End.xyz - i.worldPos.xyz);
 
 				float lenProgress=1-(len/_MaxDistance);//从外向内
+				//float lenProgress =  (len / _MaxDistance);//从内向外
 
 				fixed4 col = tex2D(_MainTex, i.uv);
 
