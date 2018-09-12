@@ -273,4 +273,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalResolution: 1920
   verticalResolution: 1080
-  shaderToy: {fileID: 4800000, guid: 19af1bf78006d11429771f6f34ac2f26, type: 3}
+  shaderToy: {fileID: 4800000, guid: 76bfef884aaa6da4694d9b94a462f60b, type: 3}
