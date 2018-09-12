@@ -9,6 +9,28 @@
 			#pragma fragment frag
 			
 			#include "UnityCG.cginc"
+			#include "../../CommonCg/MyCgInclude.cginc"
+
+			#define vec2 float2
+    		#define vec3 float3
+    		#define vec4 float4
+			#define mat2 float2x2
+			#define mat3 float3x3
+			#define mat4 float4x4
+			#define iGlobalTime _Time.y
+			#define mod fmod
+			#define mix lerp
+			#define fract frac
+			#define texture2D tex2D
+			#define iResolution _ScreenParams
+			#define gl_FragCoord ((_iParam.scrPos.xy/_iParam.scrPos.w) * _ScreenParams.xy)
+
+			
+			#define PI2 6.28318530718
+			#define pi 3.14159265358979
+			#define halfpi (pi * 0.5)
+			#define oneoverpi (1.0 / pi)
+			#define fragCoord
 
 			struct appdata
 			{
@@ -38,17 +60,13 @@
 				{
 					return float4(0, 0, 0, 1);
 				}
-        }
-
+        	}
 
 			fixed4 frag (v2f i) : SV_Target
 			{				
-				float2 uv = -1.0 + 2.0*i.vertex.xy/ _ScreenParams.xy;
-				uv.x *= _ScreenParams.x/ _ScreenParams.y ;
+				float2 uv = shaderToyUv(i.vertex.xy,1,1);
 
 				return circle(uv,float2(0,0),0.9,float4(1,0,0,0));
-
-				return 1;
 			}
 			ENDCG
 		}

@@ -297,4 +297,19 @@
 		return ShadeSH9(float4(normalize(worldNormal),1));
 	}
 
+	
+	/*
+	center 0表示(0,0)点在左下角 1表示(0,0)点在屏幕中心
+	scale 0表示uv不根据屏幕分辨率缩放，1则相反
+	*/
+	inline float2 shaderToyUv(in float2 vertex , in int center ,in int scale)
+	{
+		float2 uv = lerp(vertex.xy/ _ScreenParams.xy,
+						-1.0 + 2.0*vertex.xy/ _ScreenParams.xy,
+						center);
+
+		uv.x = lerp(uv.x,uv.x*(_ScreenParams.x/ _ScreenParams.y),scale);
+
+		return uv;
+	}
 #endif
